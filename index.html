@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!--  <link rel="stylesheet" href="assets/style.css">-->
+  <title>CSS grid-auto-flow Explained!</title>
+<style>
+	:root {
+		--bar-height: 50px;
+		--sidebar-width: 450px;
+		--ftr-background-color: #BADA55; 
+	}
+	body {
+	 box-sizing: border-box;
+	 margin: 0 0;
+		font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
+    Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-weight: 900;
+  font-size: 10px;
+	}
+	
+	*,
+	*:before,
+	*:after {
+	  box-sizing: inherit;
+	}
+</style>
+
+</head>
+
+<body >
+
+<div class="cl_container">
+	<div class="cl_sidebar">
+	<span class="label">sidebar</span>
+	<p>menu link item</p>
+	<p>menu link item</p>
+	<p>menu link item</p>
+	<p>menu link item</p>
+	<p>menu link item</p>
+	<p>menu link item</p>
+	<p>menu link item</p>
+	<p>menu link item</p>
+	<p>menu link item</p>
+	<p>menu link item</p>
+	<p>menu link item</p>
+	<p>menu link item</p>
+	<p>menu link item</p>
+	<p>menu link item</p>
+	<p>menu link item</p>
+	<p>menu link item</p>
+	<p>menu link item</p>
+	<p>menu link item</p>
+	<p>menu link item</p>
+	<p>menu link item</p>
+	<p>menu link item</p>
+	<p>menu link item</p>
+	<p>menu link item</p>
+	<p>menu link item</p>
+	<p>menu link item</p>
+	</div>
+	<div class="cl_whiteboard"><span class="label">whiteboard</span></div>
+  <div class="cl_footer">
+	  <div class="cl_ftr_timer"><span class="label">timer</span></div>
+	  <div class="cl_ftr_page_controls"><span class="label">pagination</span></div>
+	  <div class="cl_ftr_menu_controls"> <span class="label">menu &amp; tools</span> </div>
+  </div>
+</div>
+
+<style>
+
+.cl_container {
+	display: grid;
+	grid-template-rows: auto 50px;
+	grid-template-columns: var(--sidebar-width) 1fr;
+	grid-template-areas: 	"sidebar whiteboard"
+							"footer footer";
+	height: 100vh;
+}  
+.cl_footer {
+	grid-area: footer;
+	grid-column-start: 1;
+	grid-column-end:   3;
+} 
+.cl_panel {
+	display: grid;
+	grid-template-rows: var(--bar-height) auto;
+}
+	  .cl_sidebar,
+	  .cl_whiteboard,
+	  .cl_footer {
+		  border: solid 1px
+	  }
+	  .cl_sidebar {
+		  grid-area: sidebar;
+		  background: silver;
+		  overflow: auto;
+	  }
+	  .cl_whiteboard {
+		  grid-area: whiteboard;
+		  background: #ECECEC;
+	  }
+	
+	
+/* Sticky Footer */
+	  .cl_footer {
+		  background: var(--ftr-background-color);
+		  display: grid;
+		  grid-template-columns: 1fr 1fr 1fr;
+		  justify-content: center;
+  		  align-items: center;
+	  }
+	
+	.cl_ftr_timer{
+		margin-left: 20px;
+	}
+	.cl_ftr_menu_controls {
+		text-align: right;
+		margin-right: 20px;
+	}
+	.cl_ftr_page_controls{
+		text-align: center;
+	}
+	.label {
+		font-size: 25px;
+	}
+	.item p {
+	  margin: 0 0 5px 0;
+	}
+  </style>
+</body>
+
+</html>
